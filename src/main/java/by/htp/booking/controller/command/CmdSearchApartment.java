@@ -43,7 +43,7 @@ public class CmdSearchApartment extends Cmd {
             log.info("Go to a page search");
             if (isNewSearch(req)){
                 log.info("Go to a new page search");
-                removeSearchParamFromSession(req);
+                ActionFactory.removeSearchParamFromSession(req);
                 req.setAttribute("dateBegin",Util.getFormatDateFromCountSec(new Date().getTime()));
                 req.setAttribute("dateEnd",Util.getFormatDateFromCountSec(new Date().getTime()+24*60*60*1000));
 
@@ -94,11 +94,5 @@ public class CmdSearchApartment extends Cmd {
         }
         return false;
     }
-    private void removeSearchParamFromSession(HttpServletRequest request){
-        HttpSession session = request.getSession();
-        session.removeAttribute("dateBegin");
-        session.removeAttribute("dateEnd");
-        session.removeAttribute("city");
-        session.removeAttribute("country");
-       }
+
 }

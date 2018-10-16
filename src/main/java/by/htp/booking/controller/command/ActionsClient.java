@@ -46,6 +46,12 @@ public enum ActionsClient {
             this.command = new CmdSignup();
         }
     },
+
+    SIGNOUT {
+        {
+            this.command = new CmdSignout();
+        }
+    },
     LISTAPARTMENT {
         {
             this.command = new CmdListApartment();

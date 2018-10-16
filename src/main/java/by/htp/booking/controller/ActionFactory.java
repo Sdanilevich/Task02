@@ -37,6 +37,13 @@ public class ActionFactory {
 
     }
 
+    public static void removeUserFromSession(HttpServletRequest request) {
+        removeSearchParamFromSession(request);
+        HttpSession session = request.getSession();
+        session.removeAttribute("user");
+
+    }
+
 
     Cmd defineCmd(HttpServletRequest req) {
         String commandName = req.getParameter("command");
@@ -96,6 +103,16 @@ public class ActionFactory {
 
     }
 
+    public static void removeSearchParamFromSession(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        session.removeAttribute("dateBegin");
+        session.removeAttribute("dateEnd");
+        session.removeAttribute("city");
+        session.removeAttribute("country");
+    }
+
+
+
     public static void putDataLocalToSession(HttpServletRequest request){
 
         HttpSession httpSession = request.getSession();
@@ -114,6 +131,8 @@ public class ActionFactory {
         httpSession.setAttribute("menuMain",resource.getString("menu.main"));
         httpSession.setAttribute("menuLogin",resource.getString("menu.login"));
         httpSession.setAttribute("menuSignUp",resource.getString("menu.signUp"));
+        httpSession.setAttribute("menuSignOut",resource.getString("menu.signOut"));
+
         httpSession.setAttribute("menuUserName",resource.getString("menu.userName"));
         httpSession.setAttribute("apartmentCountGuest",resource.getString("apartment.countGuest"));
         httpSession.setAttribute("apartmentSizeRoom",resource.getString("apartment.sizeRoom"));
