@@ -16,15 +16,18 @@
                     </div>
                 </div>
                 <br/>
+                <c:set var = "countrySession" scope = "session" value = "${country}"/>
+                <c:set var = "citySession" scope = "session" value = "${city}"/>
 <c:choose>
+
     <c:when test="${local=='En'}">
                 <div style="display: inline-block; ">
                     <label for="country">${searchCountryTitle}</label>
                     <div>
-                        <select id="country" name="country">
+                        <select id="country" name="country" >
                             <option value = "0"></option>
                             <c:forEach items="${listCountry}" var="country" >
-                                <option value = ${country.id}>${country.nameEn}</option>
+                                <option value = ${country.id} ${countrySession==country.id?"selected":""}>${country.nameEn}</option>
 
                             </c:forEach>
 
@@ -38,7 +41,7 @@
                         <select id="city" name="city">
                             <option value = "0"></option>
                             <c:forEach var="city" items="${listCity}">
-                                        <option value = ${city.id}>${city.nameEn}</option>
+                                        <option value = ${city.id} ${citySession==city.id?"selected":""}>${city.nameEn}</option>
                             </c:forEach>
                         </select>
                     </div>
@@ -51,7 +54,7 @@
                 <select id="country" name="country">
                     <option value = "0"></option>
                     <c:forEach items="${listCountry}" var="country" >
-                        <option value = ${country.id}>${country.name}</option>
+                        <option value = ${country.id} ${countrySession==country.id?"selected":""}>${country.name}</option>
 
                     </c:forEach>
 
@@ -65,7 +68,7 @@
                 <select id="city" name="city">
                     <option value = "0"></option>
                     <c:forEach var="city" items="${listCity}">
-                        <option value = ${city.id}>${city.name}</option>
+                        <option value = ${city.id} ${citySession==city.id?"selected":""}>${city.name}</option>
                      </c:forEach>
                 </select>
             </div>

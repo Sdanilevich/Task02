@@ -1,6 +1,7 @@
 package by.htp.booking.bean;
 
 import by.htp.booking.controller.ActionFactory;
+import by.htp.booking.controller.Util;
 import by.htp.booking.service.impl.ApartmentService;
 import by.htp.booking.service.impl.HotelService;
 
@@ -137,17 +138,11 @@ public class Order extends AbstractBean implements Serializable {
     }
 
     public String getBeginDateFormat(){
-        Date date = new Date(beginDate);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-
-        return dateFormat.format(date);
+        return Util.getFormatDateFromCountSec(beginDate);
     }
 
     public String getEndDateFormat(){
-        Date date = new Date(endDate);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-
-        return dateFormat.format(date);
+        return Util.getFormatDateFromCountSec(endDate);
     }
 
     public int getCountGuest(){

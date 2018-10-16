@@ -8,10 +8,10 @@
      <div class="wrap">
          <div class="left">
              <a href=".">Главная</a>
-             <a href="do?command=SearchApartment">Поиск</a>
+             <a href="do?command=SearchApartment&newSearch=true">Поиск</a>
          </div>
          <div class="right">
-             <a style = "color:#800000" href="do?command=userOrder&newSearch=true">${user.name}</a>
+             <a style = "color:#800000" href="do?command=userOrder">${user.name}</a>
              <a  href="do?command=index&local=Ru">RU</a>
              <a  href="do?command=index&local=En">ENG</a>
              <a  href="do?command=Login">Вход</a>

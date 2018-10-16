@@ -44,6 +44,9 @@ public class CmdSearchApartment extends Cmd {
             if (isNewSearch(req)){
                 log.info("Go to a new page search");
                 removeSearchParamFromSession(req);
+                req.setAttribute("dateBegin",Util.getFormatDateFromCountSec(new Date().getTime()));
+                req.setAttribute("dateEnd",Util.getFormatDateFromCountSec(new Date().getTime()+24*60*60*1000));
+
             }
             else {
                 HttpSession session = req.getSession();
